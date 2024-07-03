@@ -1,0 +1,52 @@
+﻿@page
+@model ResumeApp.Pages.ResumeModel
+@{
+    ViewData["Title"] = "Resume";
+}
+
+<div class="container">
+    <h1>@Model.Resume.Name's Resume</h1>
+
+    <section>
+        <h2>Contact Information</h2>
+        <p>@Model.Resume.Address</p>
+        <p>@Model.Resume.Phone</p>
+        <p>@Model.Resume.Email</p>
+    </section>
+
+    <section>
+        <h2>Experience</h2>
+        @foreach (var exp in Model.Resume.Experiences)
+        {
+            <div>
+                <h3>@exp.Company</h3>
+                <p><strong>Role:</strong> @exp.Role</p>
+                <p><strong>Dates:</strong> @exp.StartDate - @exp.EndDate</p>
+                <p>@exp.Description</p>
+            </div>
+        }
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        @foreach (var edu in Model.Resume.Educations)
+        {
+            <div>
+                <h3>@edu.School</h3>
+                <p><strong>Degree:</strong> @edu.Degree</p>
+                <p><strong>Field:</strong> @edu.Field</p>
+                <p><strong>Dates:</strong> @edu.StartDate - @edu.EndDate</p>
+            </div>
+        }
+    </section>
+
+    <section>
+        <h2>Skills</h2>
+        <ul>
+            @foreach (var skill in Model.Resume.Skills)
+            {
+                <li>@skill</li>
+            }
+        </ul>
+    </section>
+</div>

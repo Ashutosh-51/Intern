@@ -1,0 +1,22 @@
+﻿@page
+@model ResumeApp.Pages.ProjectsModel
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="container">
+    <h1>Projects</h1>
+
+    @foreach (var project in Model.Projects)
+    {
+        <div class="project">
+            <h2>@project.Title</h2>
+            <p>@project.Description</p>
+            <p><strong>Technology:</strong> @project.Technology</p>
+            @if (!string.IsNullOrEmpty(project.Link))
+            {
+                <p><a href="@project.Link" target="_blank">Project Link</a></p>
+            }
+        </div>
+    }
+</div>
